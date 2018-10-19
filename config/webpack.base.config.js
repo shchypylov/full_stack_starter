@@ -6,8 +6,6 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const Dotenv = require('dotenv-webpack');
 const outputDirectory = "../dist";
 
-console.log("--- sfsdfs", path.join(__dirname, outputDirectory));
-
 module.exports = {
 	entry: "./src/client/index.js",
 	output: {
@@ -16,7 +14,7 @@ module.exports = {
 	},
 	devServer: {
 		port: 3000,
-		open: true,
+		open: false,
 		quiet: true,
 		historyApiFallback: true,
 		proxy: {
@@ -29,10 +27,15 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				enforce: "pre",
+				test: /\.js$/,
+				exclude: /node_modules/,
+				loader: "eslint-loader",
+			},
+			{
 				test: /\.js$/,
 				exclude: /node_modules/,
 				use: ['babel-loader'],
-
 			},
 			{
 				test: /\.(jpg|png|gif|svg|pdf|ico)$/,

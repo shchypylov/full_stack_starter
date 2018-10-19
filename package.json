@@ -9,9 +9,17 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "axios": "^0.18.0",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.1",
     "concurrently": "^4.0.1",
     "css-loader": "^1.0.0",
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-babel": "^5.2.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "friendly-errors-webpack-plugin": "^1.7.0",
@@ -57,6 +65,6 @@
     "build": "webpack --mode production --config config/webpack.prod.config.js --env.NODE_ENV=production --progress",
     "client": "webpack-dev-server --mode development --config config/webpack.base.config.js --open --hot --history-api-fallback",
     "server": "nodemon src/server/index.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"yarn server\" \"yarn client\""
   }
 }

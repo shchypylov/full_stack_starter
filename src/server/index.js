@@ -5,16 +5,17 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const path = require("path");
 
-const {mongo} = require("./db");
+const { mongo } = require("./db");
 const Router = require("./routes/Router");
+
 const PORT = process.env.PORT || 8080;
 const db = process.env.MONGOLAB_URI || mongo;
 const buildPath = path.join(__dirname, "../dist");
 
 mongoose.connect(db).then(() => {
-    console.log("--- mongo is up right here: ", db);
-}, (err) => {
-    console.log("--- db error at", err);
+	console.log("--- mongo is up right here: ", db);
+}, err => {
+	console.log("--- db error at", err);
 });
 
 const app = express();
